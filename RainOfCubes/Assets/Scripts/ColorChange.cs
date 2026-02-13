@@ -11,10 +11,17 @@ public class ColorChange : MonoBehaviour
 
     public void ApplyColor()
     {
-
         if(_renderer != null)
         {
             _renderer.material.color = Color.red;
+        }
+    }
+
+    public void ResetColor()
+    {
+        if (_renderer != null)
+        {
+            _renderer.material.color = Color.white;
         }
     }
 }

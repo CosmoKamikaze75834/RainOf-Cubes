@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Cube : MonoBehaviour
 {
     public event Action<Cube> CubeDissapeared;
@@ -23,29 +24,28 @@ public class Cube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.TryGetComponent<Platform>(out _))
+        if (_isConflict == true)
         {
-            if(_isConflict == true)
-            {
-                return;
-            }
+            return;
+        }
 
+        if (collision.gameObject.TryGetComponent<Platform>(out _))
+        {
             _color.ApplyColor();
             StartCoroutine(LyingPlatform());
             _isConflict = true;
         }
     }
 
-    public void FindPosition()
+    public void ResetPosition()
     {
         _isConflict = false;
 
-        if (_rigidbody != null)
-        {
-            _rigidbody.velocity = Vector3.zero;
-            _rigidbody.angularVelocity = Vector3.zero;
-            _rigidbody.rotation = Quaternion.identity;
-        }
+        _color.ResetColor();
+
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+        _rigidbody.rotation = Quaternion.identity;
     }
 
     private IEnumerator LyingPlatform()

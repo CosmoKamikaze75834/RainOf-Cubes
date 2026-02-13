@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         return cube; },
         actionOnGet: (cube) => PrepareObject(cube),
         actionOnRelease: (cube) => cube.gameObject.SetActive(false),
-        actionOnDestroy: (cube) => Destroy(cube),
+        actionOnDestroy: (cube) => Destroy(cube.gameObject),
         collectionCheck: true,
         defaultCapacity: _poolCapacity,
         maxSize: _poolMaxSize);
@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
 
     private void PrepareObject(Cube cube)
     {
-        cube.FindPosition();
+        cube.ResetPosition();
         cube.gameObject.SetActive(true);
     }
 
