@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
-    public void ApllyColor(GameObject cube)
-    {
-        Renderer renderer = GetComponent<Renderer>();
+    private Renderer _renderer;
 
-        if(renderer != null)
+    private void Awake()
+    {
+        _renderer = GetComponent<Renderer>();
+    }
+
+    public void ApplyColor()
+    {
+
+        if(_renderer != null)
         {
-            renderer.material.color = Color.red;
+            _renderer.material.color = Color.red;
         }
     }
 }

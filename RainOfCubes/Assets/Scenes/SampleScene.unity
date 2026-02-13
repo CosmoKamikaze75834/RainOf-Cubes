@@ -675,7 +675,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2031961802}
   - component: {fileID: 2031961801}
-  - component: {fileID: 2031961803}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -695,7 +694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb25bbeb55427b488137214732100e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4615481247943653217, guid: 8224b102b98924b4b9002185b205d917, type: 3}
+  _spawner: {fileID: 2031961801}
+  _center: {fileID: 1484473131}
+  _platformWidth: 20
+  _platformDepth: 20
+  _hight: 20
+  _prefab: {fileID: 1877055706278120241, guid: 8224b102b98924b4b9002185b205d917, type: 3}
   _poolCapacity: 5
   _poolMaxSize: 5
 --- !u!4 &2031961802
@@ -713,23 +717,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2031961803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2031961800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe6933b3685bd3419f40b3119837a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawner: {fileID: 2031961801}
-  _center: {fileID: 1484473131}
-  _platformWidth: 20
-  _platformDepth: 20
-  _hight: 20
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
